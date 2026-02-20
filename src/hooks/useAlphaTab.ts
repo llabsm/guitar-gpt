@@ -34,11 +34,12 @@ export function useAlphaTab(containerRef: React.RefObject<HTMLDivElement | null>
 
     const settings = new Settings();
     settings.core.logLevel = LogLevel.Warning;
-    settings.core.fontDirectory = '/font/';
+    const base = import.meta.env.BASE_URL || '/';
+    settings.core.fontDirectory = `${base}font/`;
     settings.player.enablePlayer = true;
     settings.player.enableCursor = true;
     settings.player.enableUserInteraction = true;
-    settings.player.soundFont = '/soundfont/MuseScore_General.sf2';
+    settings.player.soundFont = `${base}soundfont/MuseScore_General.sf2`;
     settings.display.layoutMode = LayoutMode.Page;
     settings.display.staveProfile = StaveProfile.Default;
     settings.notation.rhythmMode = TabRhythmMode.ShowWithBars;
